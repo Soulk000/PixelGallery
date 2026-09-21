@@ -16,11 +16,6 @@ keystore.properties
 secrets.properties
 .env
 .env.*
-.externalNativeBuild/
-.cxx/
-.DS_Store
-Thumbs.db
-*.tmp
 *.bak
 *.bak_*
 *.backup
@@ -30,5 +25,6 @@ Thumbs.db
 _update_backup_*/
 _backup_*/
 release-assets/
-PixelGallery_Project_For_Analysis.md
 GitHub_Preflight_Report.txt
+GitHub_Release_Upload_Log.txt
+PixelGallery_Project_For_Analysis.md
