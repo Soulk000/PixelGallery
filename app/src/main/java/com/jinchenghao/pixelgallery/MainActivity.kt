@@ -24,6 +24,7 @@ import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.lazy.grid.GridCells
 import androidx.compose.foundation.lazy.grid.LazyVerticalGrid
 import androidx.compose.foundation.lazy.grid.itemsIndexed
+import androidx.compose.foundation.lazy.grid.rememberLazyGridState
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.rounded.*
@@ -157,6 +158,7 @@ fun Gallery() {
     var filterMenuExpanded by remember { mutableStateOf(false) }
     val filterSizes = remember { listOf(32, 64, 128, 256, 512, 1024, 2048) }
     var pinch by remember { mutableFloatStateOf(1f) }
+    val galleryGridState = rememberLazyGridState()
 
     LaunchedEffect(Unit) { photos = loadPhotos(context) }
     BackHandler(enabled = selected != null) { selected = null }
@@ -232,6 +234,7 @@ fun Gallery() {
             Box(Modifier.fillMaxSize().padding(padding), contentAlignment = Alignment.Center) { CircularProgressIndicator() }
         } else {
             LazyVerticalGrid(
+                state = galleryGridState,
                 columns = GridCells.Fixed(columns),
                 contentPadding = PaddingValues(4.dp),
                 horizontalArrangement = Arrangement.spacedBy(3.dp),
